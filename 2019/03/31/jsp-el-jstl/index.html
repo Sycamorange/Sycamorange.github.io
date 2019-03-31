@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Servlet | 学海无涯</title>
+  <title>jsp&amp;el&amp;jstl | 学海无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学海无涯">
-<meta property="og:url" content="http://yoursite.com/tags/Servlet/index.html">
+  <meta name="description" content="JspJava Server Pages(Java服务器页面)本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
+<meta name="keywords" content="JavaEE,jsp,el,jstl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp&amp;el&amp;jstl">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/jsp-el-jstl/index.html">
 <meta property="og:site_name" content="学海无涯">
+<meta property="og:description" content="JspJava Server Pages(Java服务器页面)本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-31T09:32:24.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学海无涯">
+<meta name="twitter:title" content="jsp&amp;el&amp;jstl">
+<meta name="twitter:description" content="JspJava Server Pages(Java服务器页面)本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
   
     <link rel="alternative" href="/atom.xml" title="学海无涯" type="application/atom+xml">
   
@@ -154,36 +159,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jsp-el-jstl" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/servlet/" class="archive-article-date">
-  	<time datetime="2019-03-26T12:40:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/servlet/">Servlet&amp;Response</a>
+    <h1 class="article-title" itemprop="name">
+      jsp&amp;el&amp;jstl
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/31/jsp-el-jstl/" class="archive-article-date">
+  	<time datetime="2019-03-31T08:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Jsp"><a href="#Jsp" class="headerlink" title="Jsp"></a>Jsp</h1><h2 id="Java-Server-Pages-Java服务器页面"><a href="#Java-Server-Pages-Java服务器页面" class="headerlink" title="Java Server Pages(Java服务器页面)"></a>Java Server Pages(Java服务器页面)</h2><p>本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。<br><a id="more"></a></p>
+<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程:"></a>执行流程:</h2><p>1.浏览器发送请求,访问jsp页面<br>2.服务器接受请求,jspSerlvet会帮我们查找对应的jsp文件<br>3.服务器将jsp页面翻译成java文件<br>4.jvm会将java编译成.class文件<br>5.服务器运行class文件,生成动态的内容<br>6.将内容发送给服务器<br>7.服务器组成响应信息,发送给浏览器<br>8.浏览器接受数据,解析展示</p>
+<h2 id="jsp的脚本"><a href="#jsp的脚本" class="headerlink" title="jsp的脚本:"></a>jsp的脚本:</h2><ul>
+<li>&lt;%…%&gt; java程序片段<br>  生成成jsp的service方法中</li>
+<li>&lt;%=…%&gt; 输出表达式<br>  生成成jsp的service方法中,相当于在java中调用out.print(..)</li>
+<li>&lt;%!…%&gt; 声明成员<br>  成员位置</li>
+</ul>
+<h2 id="jsp的指令"><a href="#jsp的指令" class="headerlink" title="jsp的指令"></a>jsp的指令</h2><ul>
+<li>作用:声明jsp页面的一些属性和动作</li>
+<li>格式:<br>  &lt;%@指令名称 属性=”值” 属性=”值”%&gt;</li>
+<li>jsp指令的分类:<ul>
+<li>page:主要声明jsp页面的一些属性</li>
+<li>include:静态包含</li>
+<li>taglib:导入标签库</li>
+</ul>
+</li>
+<li>注意:<ul>
+<li>一个页面中可以出现多个指令</li>
+<li>指令可以放在任意位置,一般都放在jsp页面最上面</li>
+</ul>
+</li>
+</ul>
+<h2 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h2><h3 id="3个重要属性"><a href="#3个重要属性" class="headerlink" title="3个重要属性:"></a>3个重要属性:</h3><ul>
+<li>contentType:设置响应流的编码,及通知浏览器用什么编码打开.设置文件的mimetype</li>
+<li>pageEncoding:设置页面的编码</li>
+<li><p>import:导入所需要的包</p>
+</li>
+<li><p>contentType和pageEncoding联系:</p>
+<ul>
+<li>若两者都出现的时候,各自使用各自的编码</li>
+<li>若只出现一者,两个都使用出现的这个编码</li>
+<li>若两者都不出现,使用服务器默认的编码 tomcat7使用的iso-8859-1</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性:"></a>其他属性:</h3><ul>
+<li>language:当前jsp页面里面可以嵌套的语言(现在只能是java)</li>
+<li>buffer:设置jsp页面的流的缓冲区的大小</li>
+<li>autoFlush:是否自动刷新(默认自动刷新)</li>
+<li>extends:声明当前jsp的页面继承于那个类.必须继承的是httpservlet及其子类</li>
+<li>session:设置jsp页面是否可以使用session内置对象</li>
+<li>isELIgnored:是否忽略el表达式</li>
+<li>errorPage:当前jsp页面出现异常的时候要跳转到的jsp页面</li>
+<li>isErrorPage:当前jsp页面是否是一个错误页面<br>  若值为true,可以使用jsp页面的一个内置对象 exception</li>
+</ul>
+<h3 id="include指令"><a href="#include指令" class="headerlink" title="include指令:"></a>include指令:</h3><p>静态包含,就是将其他页面或者servlet的内容包含进来,一起进行编译运行.生成一个java文件.</p>
+<ul>
+<li>格式:<br>  &lt;%@include file=”相对路径或者是内部路径” %&gt;</li>
+</ul>
+<h3 id="taglib指令"><a href="#taglib指令" class="headerlink" title="taglib指令"></a>taglib指令</h3><p>导入标签库    </p>
+<ul>
+<li>格式:<br>   &lt;%@taglib prefix=”前缀名” uri=”名称空间” %&gt;</li>
+</ul>
+<h2 id="jsp的内置对象-9大内置对象"><a href="#jsp的内置对象-9大内置对象" class="headerlink" title="jsp的内置对象(9大内置对象)"></a>jsp的内置对象(9大内置对象)</h2><p>在jsp页面上可以直接使用的对象<br>| 内置对象 | 类型 |<br>| — | — |<br>| out | JspWriter |<br>| request | HttpServletRequest |<br>| response | HttpServletResponse |<br>| session | HttpSession |<br>| exception | Throwable |<br>| page | Servlet(this) |<br>| config | ServletConfig |<br>| application | ServletContext |<br>| pageContext | PageContext |</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,33 +271,133 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Response</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">el</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Request</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jstl</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/31/jsp-el-jstl/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/30/cookie-session/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cookie&amp;Session</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jsp"><span class="toc-number">1.</span> <span class="toc-text">Jsp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-Server-Pages-Java服务器页面"><span class="toc-number">1.1.</span> <span class="toc-text">Java Server Pages(Java服务器页面)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行流程"><span class="toc-number">1.2.</span> <span class="toc-text">执行流程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp的脚本"><span class="toc-number">1.3.</span> <span class="toc-text">jsp的脚本:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp的指令"><span class="toc-number">1.4.</span> <span class="toc-text">jsp的指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#page指令"><span class="toc-number">1.5.</span> <span class="toc-text">page指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3个重要属性"><span class="toc-number">1.5.1.</span> <span class="toc-text">3个重要属性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他属性"><span class="toc-number">1.5.2.</span> <span class="toc-text">其他属性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include指令"><span class="toc-number">1.5.3.</span> <span class="toc-text">include指令:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#taglib指令"><span class="toc-number">1.5.4.</span> <span class="toc-text">taglib指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp的内置对象-9大内置对象"><span class="toc-number">1.6.</span> <span class="toc-text">jsp的内置对象(9大内置对象)</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

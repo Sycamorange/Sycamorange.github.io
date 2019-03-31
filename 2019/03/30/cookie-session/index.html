@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="学海无涯">
 <meta property="og:description" content="Cookie(浏览器端会话技术)cookie是由服务器生成,通过response将cookie写回浏览器(set-cookie),保留在浏览器上,下一次访问,浏览器根据一定的规则携带不同的cookie(通过request的头 cookie),服务器就可以接受cookie">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-31T08:06:47.342Z">
+<meta property="og:updated_time" content="2019-03-31T09:31:12.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie&amp;Session">
 <meta name="twitter:description" content="Cookie(浏览器端会话技术)cookie是由服务器生成,通过response将cookie写回浏览器(set-cookie),保留在浏览器上,下一次访问,浏览器根据一定的规则携带不同的cookie(通过request的头 cookie),服务器就可以接受cookie">
@@ -196,19 +196,18 @@
 <li>不能获取id<br>  创建一个session,将你的数据保存到这个session中,将当前session的id返回给浏览器</li>
 </ul>
 <h2 id="获取一个session"><a href="#获取一个session" class="headerlink" title="获取一个session"></a>获取一个session</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession request.getSession()</span><br></pre></td></tr></table></figure>
-<h2 id="域对象"><a href="#域对象" class="headerlink" title="域对象"></a>域对象</h2><ul>
-<li>方法:xxxAttribute()</li>
-<li>生命周期:<ul>
+<h2 id="域对象"><a href="#域对象" class="headerlink" title="域对象"></a>域对象</h2><h3 id="方法-xxxAttribute"><a href="#方法-xxxAttribute" class="headerlink" title="方法:xxxAttribute()"></a>方法:xxxAttribute()</h3><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期:"></a>生命周期:</h3><ul>
 <li>创建:第一次调用request.getsession()创建</li>
-<li>销毁:<br>  服务器非正常关闭<br>  session超时<pre><code>默认时间超时:30分钟  web.xml有配置 
-手动设置超时:setMaxInactiveInterval(int 秒)
-</code></pre>  手动销毁session<pre><code>session.invalidate()
-</code></pre></li>
+<li>销毁:<ul>
+<li>服务器非正常关闭<ul>
+<li>session超时<br>默认时间超时:30分钟  web.xml有配置<br>手动设置超时:setMaxInactiveInterval(int 秒)</li>
 </ul>
 </li>
-<li>存放私有的数据.</li>
+<li>手动销毁session<br>  session.invalidate()</li>
 </ul>
-
+</li>
+</ul>
+<h3 id="存放私有的数据"><a href="#存放私有的数据" class="headerlink" title="存放私有的数据."></a>存放私有的数据.</h3>
       
 
       
@@ -320,6 +319,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/03/31/jsp-el-jstl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          jsp&amp;el&amp;jstl
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/03/29/bookmanage/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">BookManage</div>
@@ -349,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie-浏览器端会话技术"><span class="toc-number">1.</span> <span class="toc-text">Cookie(浏览器端会话技术)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#session-服务器端会话技术"><span class="toc-number">2.</span> <span class="toc-text">session(服务器端会话技术)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#当第一次访问的服务器的时候-服务器获取id"><span class="toc-number">2.1.</span> <span class="toc-text">当第一次访问的服务器的时候,服务器获取id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取一个session"><span class="toc-number">2.2.</span> <span class="toc-text">获取一个session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域对象"><span class="toc-number">2.3.</span> <span class="toc-text">域对象</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie-浏览器端会话技术"><span class="toc-number">1.</span> <span class="toc-text">Cookie(浏览器端会话技术)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#session-服务器端会话技术"><span class="toc-number">2.</span> <span class="toc-text">session(服务器端会话技术)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#当第一次访问的服务器的时候-服务器获取id"><span class="toc-number">2.1.</span> <span class="toc-text">当第一次访问的服务器的时候,服务器获取id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取一个session"><span class="toc-number">2.2.</span> <span class="toc-text">获取一个session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域对象"><span class="toc-number">2.3.</span> <span class="toc-text">域对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-xxxAttribute"><span class="toc-number">2.3.1.</span> <span class="toc-text">方法:xxxAttribute()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期"><span class="toc-number">2.3.2.</span> <span class="toc-text">生命周期:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存放私有的数据"><span class="toc-number">2.3.3.</span> <span class="toc-text">存放私有的数据.</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,6 +470,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">el</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
               </li>
              
               <li class="article-tag-list-item">

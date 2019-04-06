@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MVC | 学海无涯</title>
+  <title>listener&amp;filter | 学海无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MVC思想就是将业务逻辑,代码,显示相分离的一种思想">
-<meta name="keywords" content="MVC,事务">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MVC">
-<meta property="og:url" content="http://yoursite.com/2019/04/02/mvc/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="listener&amp;filter">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/listener-filter/index.html">
 <meta property="og:site_name" content="学海无涯">
-<meta property="og:description" content="MVC思想就是将业务逻辑,代码,显示相分离的一种思想">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T13:35:24.990Z">
+<meta property="og:updated_time" content="2019-04-06T08:38:18.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MVC">
-<meta name="twitter:description" content="MVC思想就是将业务逻辑,代码,显示相分离的一种思想">
+<meta name="twitter:title" content="listener&amp;filter">
   
     <link rel="alternative" href="/atom.xml" title="学海无涯" type="application/atom+xml">
   
@@ -159,129 +155,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mvc" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-listener-filter" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MVC
+      listener&amp;filter
     </h1>
   
 
         
-        <a href="/2019/04/02/mvc/" class="archive-article-date">
-  	<time datetime="2019-04-02T08:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+        <a href="/2019/04/06/listener-filter/" class="archive-article-date">
+  	<time datetime="2019-04-06T08:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h1><p>就是将业务逻辑,代码,显示相分离的一种思想<br><a id="more"></a></p>
-<ul>
-<li>M:model 模型 作用:主要是封装数据,封装对数据的访问</li>
-<li>V:view     视图 作用:主要是用来展示数据 一般是jsp担任的</li>
-<li>C:ctrl    控制 作用:接受请求,找到相应的javabean完成业务逻辑</li>
-</ul>
-<h1 id="javaee的三层架构"><a href="#javaee的三层架构" class="headerlink" title="javaee的三层架构"></a>javaee的三层架构</h1><h2 id="1-web层"><a href="#1-web层" class="headerlink" title="1.web层"></a>1.web层</h2><ul>
-<li>作用<br>  展示数据 —-jsp</li>
-<li>servlet<br>接受请求<br>找到对应的service,调用方法 完成逻辑操作<br>信息生成或者页面跳转</li>
-</ul>
-<h2 id="2-service业务层"><a href="#2-service业务层" class="headerlink" title="2.service业务层"></a>2.service业务层</h2><ul>
-<li>作用<ul>
-<li>完成业务操作</li>
-<li>调用dao</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-dao层-data-access-object-数据访问对象"><a href="#3-dao层-data-access-object-数据访问对象" class="headerlink" title="3.dao层(data access object 数据访问对象)"></a>3.dao层(data access object 数据访问对象)</h2><ul>
-<li>作用<ul>
-<li>对数据库的curd操作</li>
-</ul>
-</li>
-</ul>
-<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="1-事务的特性"><a href="#1-事务的特性" class="headerlink" title="1.事务的特性"></a>1.事务的特性</h2><table>
-<thead>
-<tr>
-<th>特性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>原子性(A)</td>
-<td>事务里面的操作单元不可切割,要么全部成功,要么全部失败</td>
-</tr>
-<tr>
-<td>一致性(C)</td>
-<td>事务执行前后,业务状态和其他业务状态保持一致</td>
-</tr>
-<tr>
-<td>隔离性(I)</td>
-<td>一个事务执行的时候最好不要受到其他事务的影响</td>
-</tr>
-<tr>
-<td>持久性(D)</td>
-<td>一旦事务提交或者回滚.这个状态都要持久化到数据库中</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-不考虑隔离性会出现的读问题"><a href="#2-不考虑隔离性会出现的读问题" class="headerlink" title="2.不考虑隔离性会出现的读问题"></a>2.不考虑隔离性会出现的读问题</h2><table>
-<thead>
-<tr>
-<th>问题</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>脏读</td>
-<td>在一个事务中读取到另一个事务没有提交的数据</td>
-</tr>
-<tr>
-<td>不可重复读</td>
-<td>在一个事务中,两次查询的结果不一致(针对的update操作)</td>
-</tr>
-<tr>
-<td>虚读(幻读)</td>
-<td>在一个事务中,两次查询的结果不一致(针对的insert操作)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-通过设置数据库的隔离级别来避免上面的问题"><a href="#3-通过设置数据库的隔离级别来避免上面的问题" class="headerlink" title="3.通过设置数据库的隔离级别来避免上面的问题"></a>3.通过设置数据库的隔离级别来避免上面的问题</h2><table>
-<thead>
-<tr>
-<th>隔离级别</th>
-<th>意思</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>read uncommitted</td>
-<td>读未提交</td>
-<td>上面的三个问题都会出现</td>
-</tr>
-<tr>
-<td>read committed</td>
-<td>读已提交</td>
-<td>可以避免脏读的发生</td>
-</tr>
-<tr>
-<td>repeatable read</td>
-<td>可重复读</td>
-<td>可以避免脏读和不可重复读的发生</td>
-</tr>
-<tr>
-<td>serializable</td>
-<td>串行化</td>
-<td>可以避免所有的问题</td>
-</tr>
-</tbody>
-</table>
-
+        
       
 
       
@@ -310,21 +204,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -375,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/02/mvc/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/06/listener-filter/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -389,18 +268,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/06/ajax/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ajax&amp;Json
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/31/jsp-el-jstl/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsp&amp;el&amp;jstl</div>
+    <a href="/2019/04/06/ajax/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax&amp;Json</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -427,7 +297,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC思想"><span class="toc-number">1.</span> <span class="toc-text">MVC思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#javaee的三层架构"><span class="toc-number">2.</span> <span class="toc-text">javaee的三层架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-web层"><span class="toc-number">2.1.</span> <span class="toc-text">1.web层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-service业务层"><span class="toc-number">2.2.</span> <span class="toc-text">2.service业务层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-dao层-data-access-object-数据访问对象"><span class="toc-number">2.3.</span> <span class="toc-text">3.dao层(data access object 数据访问对象)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务"><span class="toc-number">3.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-事务的特性"><span class="toc-number">3.1.</span> <span class="toc-text">1.事务的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-不考虑隔离性会出现的读问题"><span class="toc-number">3.2.</span> <span class="toc-text">2.不考虑隔离性会出现的读问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-通过设置数据库的隔离级别来避免上面的问题"><span class="toc-number">3.3.</span> <span class="toc-text">3.通过设置数据库的隔离级别来避免上面的问题</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="无涯">
 <meta property="og:description" content="JspJava Server Pages(Java服务器页面) 本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-07T05:25:32.407Z">
+<meta property="og:updated_time" content="2019-04-07T05:37:33.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp&amp;el&amp;jstl">
 <meta name="twitter:description" content="JspJava Server Pages(Java服务器页面) 本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
@@ -466,7 +466,7 @@
 <h3 id="和全局初始化参数相关的el内置对象"><a href="#和全局初始化参数相关的el内置对象" class="headerlink" title="和全局初始化参数相关的el内置对象"></a>和全局初始化参数相关的el内置对象</h3><ul>
 <li>initParam</li>
 </ul>
-<h3 id="cookie内置对象"><a href="#cookie内置对象" class="headerlink" title="cookie内置对象"></a>cookie内置对象</h3><h4 id="cookie-获取map-key-Cookie"><a href="#cookie-获取map-key-Cookie" class="headerlink" title="${cookie} 获取map{key=Cookie}"></a>${cookie} 获取map{key=Cookie}</h4><ol>
+<h3 id="cookie内置对象"><a href="#cookie内置对象" class="headerlink" title="cookie内置对象"></a>cookie内置对象</h3><h4 id="cookie-获取map-key-Cookie"><a href="#cookie-获取map-key-Cookie" class="headerlink" title="${cookie} 获取map{key=Cookie}"></a>${cookie} 获取map{key=Cookie}</h4><ul>
 <li><p>创建cookie</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie c=<span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"tom"</span>);</span><br></pre></td></tr></table></figure>
 </li>
@@ -477,11 +477,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;cookie.username.value&#125;<span class="comment">//javabean导航</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>注意</p>
-</li>
-</ol>
-<ul>
-<li><p>java中Cookie的api</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName()<span class="comment">//获取cookie的名称</span></span><br><span class="line">getValue()<span class="comment">//获取cookie的value值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java中Cookie的api</span></span><br><span class="line">getName()<span class="comment">//获取cookie的名称</span></span><br><span class="line">getValue()<span class="comment">//获取cookie的value值</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>我们称name和value是cookie的bean属性</p>
 </li>
@@ -797,6 +793,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
@@ -809,27 +821,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

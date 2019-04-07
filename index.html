@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>学海无涯</title>
+  <title>无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学海无涯">
+  <meta name="keywords" content="js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,IT网站,Developer,Programmer,Coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="无涯">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="学海无涯">
+<meta property="og:site_name" content="无涯">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学海无涯">
+<meta name="twitter:title" content="无涯">
   
-    <link rel="alternative" href="/atom.xml" title="学海无涯" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="无涯" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -49,7 +50,7 @@
 		  <h1 class="header-author"><a href="/">梧童雨下</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">是我装模做样在瞎掰,还是他们本就心怀鬼胎</p>
+		<p class="header-subtitle">前路漫漫,唯码作伴</p>
 		
 
 		<nav class="header-menu">
@@ -68,7 +69,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">其他</a>
     			
             
     			
@@ -109,7 +110,7 @@
 			  <h1 class="header-author js-header-author">梧童雨下</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>是我装模做样在瞎掰,还是他们本就心怀鬼胎<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>前路漫漫,唯码作伴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -178,62 +179,12 @@
       
         <h1 id="listener"><a href="#listener" class="headerlink" title="listener:"></a>listener:</h1><ol>
 <li>监听器</li>
-<li>作用:<br> 监听web中中的域对象 ServletContext ServletRequest HttpSession</li>
-<li>监听内容:<ul>
-<li>监听三个对象的创建和销毁</li>
-<li>监听三个对象属性的变化</li>
-<li>监听session中javabean的状态</li>
-</ul>
-</li>
-<li>注意:listener全部是接口</li>
-</ol>
-<blockquote>
-<p>监听三个对象的创建和销毁</p>
-</blockquote>
-<ul>
-<li>ServletContextListener<ul>
-<li>创建:服务器启动的时候,会为每一个项目都创建一个servletContext</li>
-<li>销毁:服务器关闭的时候,或者项目被移除的时候</li>
-</ul>
-</li>
-<li>ServletRequestListener<ul>
-<li>创建:请求来的时候</li>
-<li>销毁:响应生成的时候</li>
-</ul>
-</li>
-<li>HttpSessionListener<ul>
-<li>创建:<ul>
-<li>java中第一次调用request.getSession的时候</li>
-<li>jsp访问的时候创建</li>
-</ul>
-</li>
-<li>销毁:<ul>
-<li>三种情况:<br>  session超时<br>  手动销毁session<br>  服务器非正常关闭</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>监听三个对象属性的变化(添加 替换 删除)</p>
-</blockquote>
-<p>ServletContextAttributeListener<br>ServletRequestAttributeListener<br>HttpSessionAttributeListener</p>
-<blockquote>
-<p>监听session中javabean的状态<br>注意:这两个接口需要javabean实现.是让javabean感知到自己的状态</p>
-</blockquote>
-<ul>
-<li>HttpSessionBindingListener(绑定和解绑)<br>检测java是否添加到session或者从session中移除</li>
-<li>HttpSessionActivationListener(钝化和活化)<ul>
-<li>钝化:javabean从session中序列化到磁盘上</li>
-<li>活化:javabean从磁盘上加载到了session中</li>
-</ul>
-</li>
-</ul>
-
+<li>作用:<br> 监听web中中的域对象 ServletContext ServletRequest HttpSession
+        
       
 
       
-    </div>
+    </li></ol></div>
     <div class="article-info article-info-index">
       
       
@@ -293,13 +244,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/06/ajax/">Ajax&amp;Json</a>
+      <a class="article-title" href="/2019/04/05/ajax/">Ajax&amp;Json</a>
     </h1>
   
 
         
-        <a href="/2019/04/06/ajax/" class="archive-article-date">
-  	<time datetime="2019-04-06T03:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
+        <a href="/2019/04/05/ajax/" class="archive-article-date">
+  	<time datetime="2019-04-05T03:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
 </a>
         
       </header>
@@ -341,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/06/ajax/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/05/ajax/">展开全文 >></a>
         </p>
       
 
@@ -845,7 +796,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">其他</a></li>
       
         
       
@@ -868,6 +819,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
@@ -924,18 +887,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jquery</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -989,26 +940,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <a href="https://hexo.io/docs/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Hexo文档</a>
             </li>
           
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -1017,7 +948,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">茫茫人海中小小的我们啊&lt;br&gt;&lt;br&gt;努力地做点什么吧&lt;br&gt;Fighting ！！！</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Tong,&lt;br&gt;没啥本事,普通人一个&lt;br&gt;&lt;br&gt;为事业而努力奋斗</div>
   	  	
     	</section>
     

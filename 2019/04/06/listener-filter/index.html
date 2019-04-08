@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>listener&amp;filter | 无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="listener: 监听器   作用: 监听web中中的域对象 ServletContext ServletRequest HttpSession">
+  <meta name="description" content="listener: 监听器  1.作用:    监听web中中的域对象 ServletContext ServletRequest HttpSession">
 <meta name="keywords" content="filter,listener">
 <meta property="og:type" content="article">
 <meta property="og:title" content="listener&amp;filter">
 <meta property="og:url" content="http://yoursite.com/2019/04/06/listener-filter/index.html">
 <meta property="og:site_name" content="无涯">
-<meta property="og:description" content="listener: 监听器   作用: 监听web中中的域对象 ServletContext ServletRequest HttpSession">
+<meta property="og:description" content="listener: 监听器  1.作用:    监听web中中的域对象 ServletContext ServletRequest HttpSession">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-07T09:24:11.629Z">
+<meta property="og:updated_time" content="2019-04-07T13:59:02.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="listener&amp;filter">
-<meta name="twitter:description" content="listener: 监听器   作用: 监听web中中的域对象 ServletContext ServletRequest HttpSession">
+<meta name="twitter:description" content="listener: 监听器  1.作用:    监听web中中的域对象 ServletContext ServletRequest HttpSession">
   
     <link rel="alternative" href="/atom.xml" title="无涯" type="application/atom+xml">
   
@@ -182,16 +182,11 @@
         <h1 id="listener"><a href="#listener" class="headerlink" title="listener:"></a>listener:</h1><blockquote>
 <p>监听器</p>
 </blockquote>
-<ol>
-<li>作用:<br> 监听web中中的域对象 ServletContext ServletRequest HttpSession<a id="more"></a></li>
-<li>监听内容:<ul>
-<li>监听三个对象的创建和销毁</li>
-<li>监听三个对象属性的变化</li>
-<li>监听session中javabean的状态</li>
-</ul>
-</li>
-<li>注意:listener全部是接口</li>
-</ol>
+<p>1.作用:<br>    监听web中中的域对象 ServletContext ServletRequest HttpSession<br><a id="more"></a><br>2.监听内容:</p>
+<pre><code>- 监听三个对象的创建和销毁
+- 监听三个对象属性的变化
+- 监听session中javabean的状态
+</code></pre><p>3.注意:listener全部是接口</p>
 <h2 id="监听三个对象的创建和销毁"><a href="#监听三个对象的创建和销毁" class="headerlink" title="监听三个对象的创建和销毁"></a>监听三个对象的创建和销毁</h2><ul>
 <li>ServletContextListener<ul>
 <li>创建:服务器启动的时候,会为每一个项目都创建一个servletContext</li>
@@ -565,30 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">el</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -605,11 +576,51 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">servlet3.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">el</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,14 +633,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Request</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

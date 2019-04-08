@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="无涯">
 <meta property="og:description" content="JspJava Server Pages(Java服务器页面) 本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-07T05:37:33.696Z">
+<meta property="og:updated_time" content="2019-04-07T13:58:44.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp&amp;el&amp;jstl">
 <meta name="twitter:description" content="JspJava Server Pages(Java服务器页面) 本质上jsp就是一个Servlet，在html代码中嵌套java代码，运行在服务器端,处理请求，生成动态内容。产生的java文件和class保留在tomcat的word目录下。">
@@ -391,19 +391,12 @@
 <h1 id="el-Expression-Language"><a href="#el-Expression-Language" class="headerlink" title="el(Expression Language)"></a>el(Expression Language)</h1><blockquote>
 <p>jsp的内置表达式语言,从jsp2.0开始,用来替代&lt;%=..%&gt;</p>
 </blockquote>
-<ol>
-<li><p>作用:</p>
-<ul>
-<li>获取域中数据 ★</li>
-<li>执行运算 ★</li>
-<li>获取常见的web对象</li>
-<li>调用java的方法</li>
-</ul>
-</li>
-<li><p>格式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;el表达式&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>1.作用</p>
+<pre><code>- 获取域中数据 ★
+- 执行运算 ★
+- 获取常见的web对象
+- 调用java的方法
+</code></pre><p>2.格式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;el表达式&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="获取域中数据-★"><a href="#获取域中数据-★" class="headerlink" title="获取域中数据:★"></a>获取域中数据:★</h2><h3 id="获取简单数据"><a href="#获取简单数据" class="headerlink" title="获取简单数据"></a>获取简单数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;pageScope|requestScope|sessionScope|applicationScope.属性名&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>经常使用:</strong></p>
 <blockquote>
@@ -424,32 +417,22 @@
 <p>若属性名中出现了”.”|”+”|”-“等特殊符号,需要使用scope获取</p>
 </blockquote>
 <p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;requestScope[&quot;arr.age&quot;] &#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="javabean导航"><a href="#javabean导航" class="headerlink" title="javabean导航"></a>javabean导航</h3><ol>
-<li>javabean<blockquote>
-<p>java语言编写的一个可重用的组件,狭义上来说就是我们编写的一个普通的java类 例如:User Person </p>
-</blockquote>
-</li>
-<li><p>javabean规范</p>
-<ul>
-<li><p>必须是一个公共的具体的类</p>
+<h3 id="javabean导航"><a href="#javabean导航" class="headerlink" title="javabean导航"></a>javabean导航</h3><p>1.javabean</p>
+<blockquote>
+<p>java语言编写的一个可重用的组件,狭义上来说就是我们编写的一个普通的java类 例如:User Person<br>2.javabean规范</p>
+<pre><code>- 必须是一个公共的具体的类
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提供私有的字段</p>
+</code></pre></blockquote>
+<pre><code>- 提供私有的字段
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String id;<span class="comment">//id称之为字段</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提供公共访问字段的方法 get|set|is方法</p>
+
+- 提供公共访问字段的方法 get|set|is方法
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span></span>&#123;..&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一旦有公共的方法之后,get|set|is之后的内容,将首字母小写,将这个东西称之为bean属性,<strong>id就是一个bean属性</strong></p>
-<ul>
-<li>提供一个无参的构造器</li>
-<li>一般实现序列化接口<strong>serializable</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="el的内置对象"><a href="#el的内置对象" class="headerlink" title="el的内置对象"></a>el的内置对象</h2><ul>
+
+- 一旦有公共的方法之后,get|set|is之后的内容,将首字母小写,将这个东西称之为bean属性,**id就是一个bean属性**
+    - 提供一个无参的构造器
+    - 一般实现序列化接口**serializable**
+</code></pre><h2 id="el的内置对象"><a href="#el的内置对象" class="headerlink" title="el的内置对象"></a>el的内置对象</h2><ul>
 <li>pageScope</li>
 <li>requestScope</li>
 <li>sessionScope</li>
@@ -777,30 +760,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">el</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -817,11 +776,51 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">servlet3.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">el</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -834,14 +833,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Request</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

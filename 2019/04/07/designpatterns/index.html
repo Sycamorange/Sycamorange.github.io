@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>designpatterns | 无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="设计模式">
+  <meta name="description" content="单例模式装饰者模式 要求装饰者和被装饰者实现同一个接口或者继承同一个类 装饰者中要有被装饰者的引用 对需要加强方法进行加强 对不需要加强的方法调用原来的方法即可  工厂模式">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="designpatterns">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/designpatterns/index.html">
 <meta property="og:site_name" content="无涯">
+<meta property="og:description" content="单例模式装饰者模式 要求装饰者和被装饰者实现同一个接口或者继承同一个类 装饰者中要有被装饰者的引用 对需要加强方法进行加强 对不需要加强的方法调用原来的方法即可  工厂模式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-07T11:18:57.787Z">
+<meta property="og:updated_time" content="2019-04-07T12:09:06.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="designpatterns">
+<meta name="twitter:description" content="单例模式装饰者模式 要求装饰者和被装饰者实现同一个接口或者继承同一个类 装饰者中要有被装饰者的引用 对需要加强方法进行加强 对不需要加强的方法调用原来的方法即可  工厂模式">
   
     <link rel="alternative" href="/atom.xml" title="无涯" type="application/atom+xml">
   
@@ -176,7 +179,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><h1 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h1><ol>
+<li>要求装饰者和被装饰者实现同一个接口或者继承同一个类</li>
+<li>装饰者中要有被装饰者的引用</li>
+<li>对需要加强方法进行加强</li>
+<li>对不需要加强的方法调用原来的方法即可</li>
+</ol>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1>
       
 
       
@@ -280,6 +289,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/04/07/注解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Annotation
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/04/06/listener-filter/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">listener&amp;filter</div>
@@ -309,7 +327,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#单例模式"><span class="toc-number">1.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#装饰者模式"><span class="toc-number">2.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工厂模式"><span class="toc-number">3.</span> <span class="toc-text">工厂模式</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -421,30 +439,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">el</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -461,11 +455,51 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">servlet3.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">el</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jstl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,14 +512,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Request</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

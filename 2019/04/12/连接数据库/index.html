@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 无涯</title>
+  <title>连接数据库 | 无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,IT网站,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="无涯">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="jdbc操作步骤 数据库和表 创建一个项目 导入驱动jar包 编码: 注册驱动 获取连接 编写sql 创建预编译的语句执行者 设置参数 执行sql 处理结果 释放资源    常用的连接池DBCP 导入jar包(commons-dbcp-1.4.jar和commons-pool-1.5.6.jar) 使用api   a.硬编码   12345678//创建连接池BasicDataSource ds">
+<meta name="keywords" content="jdbc,连接池">
+<meta property="og:type" content="article">
+<meta property="og:title" content="连接数据库">
+<meta property="og:url" content="http://yoursite.com/2019/04/12/连接数据库/index.html">
 <meta property="og:site_name" content="无涯">
+<meta property="og:description" content="jdbc操作步骤 数据库和表 创建一个项目 导入驱动jar包 编码: 注册驱动 获取连接 编写sql 创建预编译的语句执行者 设置参数 执行sql 处理结果 释放资源    常用的连接池DBCP 导入jar包(commons-dbcp-1.4.jar和commons-pool-1.5.6.jar) 使用api   a.硬编码   12345678//创建连接池BasicDataSource ds">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-12T07:50:44.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无涯">
+<meta name="twitter:title" content="连接数据库">
+<meta name="twitter:description" content="jdbc操作步骤 数据库和表 创建一个项目 导入驱动jar包 编码: 注册驱动 获取连接 编写sql 创建预编译的语句执行者 设置参数 执行sql 处理结果 释放资源    常用的连接池DBCP 导入jar包(commons-dbcp-1.4.jar和commons-pool-1.5.6.jar) 使用api   a.硬编码   12345678//创建连接池BasicDataSource ds">
   
     <link rel="alternative" href="/atom.xml" title="无涯" type="application/atom+xml">
   
@@ -155,36 +159,139 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-连接数据库" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/12/连接数据库/" class="archive-article-date">
-  	<time datetime="2019-04-12T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/12/连接数据库/">连接数据库</a>
+    <h1 class="article-title" itemprop="name">
+      连接数据库
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/12/连接数据库/" class="archive-article-date">
+  	<time datetime="2019-04-12T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jdbc操作步骤"><a href="#jdbc操作步骤" class="headerlink" title="jdbc操作步骤"></a>jdbc操作步骤</h1><ol>
+<li>数据库和表</li>
+<li>创建一个项目</li>
+<li>导入驱动jar包</li>
+<li>编码:<ul>
+<li>注册驱动</li>
+<li>获取连接</li>
+<li>编写sql</li>
+<li>创建预编译的语句执行者</li>
+<li>设置参数</li>
+<li>执行sql</li>
+<li>处理结果</li>
+<li>释放资源</li>
+</ul>
+</li>
+</ol>
+<h1 id="常用的连接池"><a href="#常用的连接池" class="headerlink" title="常用的连接池"></a>常用的连接池</h1><h2 id="DBCP"><a href="#DBCP" class="headerlink" title="DBCP"></a>DBCP</h2><ol>
+<li>导入jar包(commons-dbcp-1.4.jar和commons-pool-1.5.6.jar)</li>
+<li>使用api</li>
+</ol>
+<ul>
+<li><p>a.硬编码</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建连接池</span></span><br><span class="line">BasicDataSource ds = <span class="keyword">new</span> BasicDataSource();</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置信息</span></span><br><span class="line">ds.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">ds.setUrl(<span class="string">"jdbc:mysql:///数据库名"</span>);</span><br><span class="line">ds.setUsername(<span class="string">""</span>);</span><br><span class="line">ds.setPassword(<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>b.配置文件</p>
+<blockquote>
+<p>事先编写一个properties文件</p>
+</blockquote>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存放配置文件</span></span><br><span class="line">Properties prop = <span class="keyword">new</span> Properties();</span><br><span class="line">prop.load(<span class="keyword">new</span> FileInputStream(<span class="string">"src/dbcp.properties"</span>));</span><br><span class="line"><span class="comment">//设置</span></span><br><span class="line"><span class="comment">//prop.setProperty("driverClassName", "com.mysql.jdbc.Driver");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建连接池</span></span><br><span class="line">DataSource ds = <span class="keyword">new</span> BasicDataSourceFactory().createDataSource(prop);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="C3P0"><a href="#C3P0" class="headerlink" title="C3P0"></a>C3P0</h2><blockquote>
+<p>有自动回收空闲连接的功能.</p>
+</blockquote>
+<ol>
+<li>导入jar包(c3p0-0.9.1.2.jar)</li>
+<li>使用api</li>
+</ol>
+<ul>
+<li><p>a.硬编码(不推荐)</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ComboPooledDataSource()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>b.配置文件</p>
+<ul>
+<li>配置文件的名称:c3p0.properties 或者 c3p0-config.xml</li>
+<li>配置文件的路径:src下</li>
+<li>编码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new ComboPooledDataSource()//使用默认的配置</span><br><span class="line">new ComboPooledDataSource(String configName)//使用命名的配置 若配置的名字找不到,使用默认的配置</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="DBUtils"><a href="#DBUtils" class="headerlink" title="DBUtils"></a>DBUtils</h2><blockquote>
+<p>apache组织的一个工具类,jdbc的框架</p>
+</blockquote>
+<h3 id="核心类或接口"><a href="#核心类或接口" class="headerlink" title="核心类或接口"></a>核心类或接口</h3><blockquote>
+<p>QueryRunner:类名</p>
+</blockquote>
+<ul>
+<li>作用:操作sql语句<ul>
+<li>构造器:<br>  new QueryRunner(Datasource ds);</li>
+<li>注意:<br>  底层帮我们创建连接,创建语句执行者 ,释放资源.</li>
+<li>常用方法:<br>  query(..):<br>  update(..):</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>DbUtils:释放资源,控制事务 类</p>
+</blockquote>
+<ul>
+<li>closeQuietly(conn):内部处理了异常<br>  commitAndClose(Connection conn):提交事务并释放连接</li>
+</ul>
+<blockquote>
+<p>ResultSetHandler:封装结果集 接口</p>
+</blockquote>
+<ul>
+<li>ArrayHandler, 将查询结果的第一条记录封装成数组,返回</li>
+<li>ArrayListHandler, 将查询结果的每一条记录封装成数组,将每一个数组放入list中返回</li>
+<li>BeanHandler, 将查询结果的第一条记录封装成指定的bean对象,返回</li>
+<li>BeanListHandler, 将查询结果的每一条记录封装成指定的bean对象,将每一个bean对象放入list中 返回.</li>
+<li>ColumnListHandler, 将查询结果的指定一列放入list中返回 </li>
+<li>MapHandler, 将查询结果的第一条记录封装成map,字段名作为key,值为value 返回</li>
+<li>MapListHandler, 将查询结果的每一条记录封装map集合,将每一个map集合放入list中返回</li>
+<li>ScalarHandler,针对于聚合函数 例如:count(*) 返回的是一个Long值</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks For Your Coming<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,404 +307,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/12/连接数据库/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/08/sql/" class="archive-article-date">
-  	<time datetime="2019-04-08T07:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/08/sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sql</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/sql/">sql</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jdbc操作步骤"><span class="toc-number">1.</span> <span class="toc-text">jdbc操作步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用的连接池"><span class="toc-number">2.</span> <span class="toc-text">常用的连接池</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBCP"><span class="toc-number">2.1.</span> <span class="toc-text">DBCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C3P0"><span class="toc-number">2.2.</span> <span class="toc-text">C3P0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBUtils"><span class="toc-number">2.3.</span> <span class="toc-text">DBUtils</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心类或接口"><span class="toc-number">2.3.1.</span> <span class="toc-text">核心类或接口</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/注解/" class="archive-article-date">
-  	<time datetime="2019-04-07T12:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/注解/">Annotation</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Annotation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">servlet3.0</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/designpatterns/" class="archive-article-date">
-  	<time datetime="2019-04-07T11:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/designpatterns/">designpatterns</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/06/listener-filter/" class="archive-article-date">
-  	<time datetime="2019-04-06T08:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/06/listener-filter/">listener&amp;filter</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">filter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">listener</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/05/ajax/" class="archive-article-date">
-  	<time datetime="2019-04-05T03:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/05/ajax/">Ajax&amp;Json</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/mvc/" class="archive-article-date">
-  	<time datetime="2019-04-02T08:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/mvc/">MVC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/31/jsp-el-jstl/" class="archive-article-date">
-  	<time datetime="2019-03-31T08:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/31/jsp-el-jstl/">jsp&amp;el&amp;jstl</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">el</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jstl</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/30/cookie-session/" class="archive-article-date">
-  	<time datetime="2019-03-30T07:29:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/30/cookie-session/">Cookie&amp;Session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cookie</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/29/bookmanage/" class="archive-article-date">
-  	<time datetime="2019-03-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/29/bookmanage/">BookManage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -621,8 +442,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

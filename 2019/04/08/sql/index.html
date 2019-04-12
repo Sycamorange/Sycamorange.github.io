@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 无涯</title>
+  <title>sql | 无涯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,IT网站,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="无涯">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="数据库 本质上就是一个文件系统.通过标准的sql对数据进行curd操作  数据库分类关系型数据库:存放实体与实体之间的关系的数据库(就是二维表) 非关系型数据库存放的是对象(redis) NO-sql(not only sql) SQL 结构化查询语句  sql分类DDL:数据定义语言 操作对象:数据库和表 关键词:create alter drop  DML:数据操作语言 操作对象:记录  DQ">
+<meta name="keywords" content="Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/sql/index.html">
 <meta property="og:site_name" content="无涯">
+<meta property="og:description" content="数据库 本质上就是一个文件系统.通过标准的sql对数据进行curd操作  数据库分类关系型数据库:存放实体与实体之间的关系的数据库(就是二维表) 非关系型数据库存放的是对象(redis) NO-sql(not only sql) SQL 结构化查询语句  sql分类DDL:数据定义语言 操作对象:数据库和表 关键词:create alter drop  DML:数据操作语言 操作对象:记录  DQ">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-11T11:59:26.859Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无涯">
+<meta name="twitter:title" content="sql">
+<meta name="twitter:description" content="数据库 本质上就是一个文件系统.通过标准的sql对数据进行curd操作  数据库分类关系型数据库:存放实体与实体之间的关系的数据库(就是二维表) 非关系型数据库存放的是对象(redis) NO-sql(not only sql) SQL 结构化查询语句  sql分类DDL:数据定义语言 操作对象:数据库和表 关键词:create alter drop  DML:数据操作语言 操作对象:记录  DQ">
   
     <link rel="alternative" href="/atom.xml" title="无涯" type="application/atom+xml">
   
@@ -155,78 +159,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-sql" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/12/连接数据库/" class="archive-article-date">
-  	<time datetime="2019-04-12T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/12/连接数据库/">连接数据库</a>
+    <h1 class="article-title" itemprop="name">
+      sql
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jdbc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">连接池</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/08/sql/" class="archive-article-date">
+        
+        <a href="/2019/04/08/sql/" class="archive-article-date">
   	<time datetime="2019-04-08T07:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/sql/">sql</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><blockquote>
+<p>本质上就是一个文件系统.通过标准的sql对数据进行curd操作</p>
+</blockquote>
+<h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库:"></a>关系型数据库:</h3><p>存放实体与实体之间的关系的数据库(就是二维表)</p>
+<h3 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h3><p>存放的是对象(redis) NO-sql(not only sql)</p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><blockquote>
+<p>结构化查询语句</p>
+</blockquote>
+<h2 id="sql分类"><a href="#sql分类" class="headerlink" title="sql分类"></a>sql分类</h2><h3 id="DDL-数据定义语言"><a href="#DDL-数据定义语言" class="headerlink" title="DDL:数据定义语言"></a>DDL:数据定义语言</h3><ul>
+<li>操作对象:数据库和表</li>
+<li>关键词:create alter drop</li>
+</ul>
+<h3 id="DML-数据操作语言"><a href="#DML-数据操作语言" class="headerlink" title="DML:数据操作语言"></a>DML:数据操作语言</h3><ul>
+<li>操作对象:记录</li>
+</ul>
+<h3 id="DQL-数据查询语言-非官方"><a href="#DQL-数据查询语言-非官方" class="headerlink" title="DQL:数据查询语言(非官方)"></a>DQL:数据查询语言(非官方)</h3><blockquote>
+<p>简单查询</p>
+</blockquote>
+<ul>
+<li>去重操作 distinct<br>格式: select distinct 字段名,字段名2 from 表名</li>
+<li>可以在查询的结果之上进行运算,不影响数据库中的值</li>
+<li>给列起别名 格式: 字段名 [as] 别名</li>
+</ul>
+<blockquote>
+<p>条件查询</p>
+</blockquote>
+<ul>
+<li><p>模糊匹配 </p>
+<ul>
+<li>格式: 字段名 like “匹配规则”;<ul>
+<li>匹配内容 %<br>“龙”        值为龙<br>“%龙”    值以”龙”结尾<br>“龙%”    值以”龙”开头<br>“%龙%”    值包含”龙”</li>
+<li>匹配个数 “__” 占两个位置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>where后的条件写法：</p>
+<ul>
+<li>> ,&lt;,=,>=,&lt;=,&lt;>,!=</li>
+<li>like 使用占位符 _ 和 % , _ 代表一个字符 , % 代表任意个字符. </li>
+<li>in在某个范围中获得值.</li>
+<li>between 较小值 and 较大值</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>排序查询</p>
+</blockquote>
+<ul>
+<li>asc-升序</li>
+<li>desc-降序</li>
+</ul>
+<blockquote>
+<p>聚合函数<br>对一列进行计算 返回值是一个,忽略null值</p>
+</blockquote>
+<ul>
+<li>sum(),avg(),max(),min(),count(),round(值,保留小数位);</li>
+</ul>
+<blockquote>
+<p>分组：使用group by</p>
+</blockquote>
+<p>1.根据cno字段分组，分组后统计商品的个数.<br>    select cno,count(*) from products group by cno;<br>2.根据cno分组，分组统计每组商品的总数量，并且总数量&gt; 200;<br>    select cno,sum(pnum) from products  group by cno;<br>    select cno,sum(pnum) from products  group by cno having sum(pnum)&gt;200;</p>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li>where 是对分组前的数据进行过滤;having 是对分组后的数据进行过滤</li>
+<li>where 后面不能使用聚合函数;having可以</li>
+</ol>
+</blockquote>
+<h3 id="DCL-数据控制语言"><a href="#DCL-数据控制语言" class="headerlink" title="DCL:数据控制语言"></a>DCL:数据控制语言</h3><ul>
+<li>操作对象:用户 事务 权限</li>
+</ul>
+<h2 id="truncate-清空表-★"><a href="#truncate-清空表-★" class="headerlink" title="truncate 清空表 ★"></a>truncate 清空表 ★</h2><ul>
+<li>格式:<br>truncate 表名; 销毁表,重新创建一张空表</li>
+<li><p>和delete from 区别:</p>
+<ul>
+<li>delete属于DML语句 truncate属于DDL语句</li>
+<li>delete逐条删除    truncate销毁表,重新创建一张空表</li>
+</ul>
+</li>
+<li><p>auto_increment 自增</p>
+<ul>
+<li>1.被修饰的字段类型支持自增. 一般int</li>
+<li>2.被修饰的字段必须是一个key 一般是primary key</li>
+</ul>
+</li>
+</ul>
+<h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><blockquote>
+<p>为了保证数据的有效性和完整性,添加约束(外键约束).</p>
+</blockquote>
+<ul>
+<li>在多表的一方添加外键约束<br>alter table 多表名称 add foreign key(外键名称) references 一表名称(主键);</li>
+<li>添加了外键约束之后有如下特点:★<ul>
+<li>主表中不能删除从表中已引用的数据</li>
+<li>从表中不能添加主表中不存在的数据</li>
+</ul>
+</li>
+<li>开发中处理一对多:★<ul>
+<li>在多表中添加一个外键,名称一般为主表的名称_id,字段类型一般和主表的主键的类型保持一致,</li>
+<li>为了保证数据的有效性和完整性,在多表的外键上添加外键约束即可.</li>
+</ul>
+</li>
+</ul>
+<h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><blockquote>
+<p>开发中处理多对多:★</p>
+</blockquote>
+<ul>
+<li>引入一张中间表,存放两张表的主键,一般会将这两个字段设置为联合主键,这样就可以将多对多的关系拆分成两个一对多了</li>
+<li>为了保证数据的有效性和完整性<br>  需要在中间表上添加两个外键约束即可.</li>
+</ul>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h3 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h3><blockquote>
+<p>多张表无条件的联合查询.没有任何意思</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.*,b.* from a,b;</span><br></pre></td></tr></table></figure>
+<h3 id="内连接-★"><a href="#内连接-★" class="headerlink" title="内连接:★"></a>内连接:★</h3><ul>
+<li><p>格式1:显式的内连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.*,b.* from a [inner] join b on ab的连接条件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式2:隐式的内连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.*,b.* from a,b where ab的连接条件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="外连接-★"><a href="#外连接-★" class="headerlink" title="外连接:★"></a>外连接:★</h3><ul>
+<li>左外连接:★<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.*,b.* from a left [outer] join b on 连接条件;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>先展示join左边的(a)表的所有数据,根据条件关联查询 join右边的表(b),符合条件则展示出来,不符合以null值展示.</p>
+<ul>
+<li>右外连接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.*,b.* from b right [outer] join a on 连接条件;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>先展示jion右边的表(a)表的所有数据,根据条件关联查询join左边的表(b),符合条件则展示出来,不符合以null值展示.</p>
+<h1 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h1><ul>
+<li>图形化工具备份:</li>
+<li><p>mysql数据库通过命令备份:不用登录数据库</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p1234 store28&gt;D:\1.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mysql数据库通过命令还原:</p>
+<blockquote>
+<p>前提:手动的创建数据库</p>
+</blockquote>
+<p>  方式1:不用登录数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p1234 bak1&lt;D:\1.sql</span><br></pre></td></tr></table></figure>
+<p>  方式2:需要登录到指定的数据库上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source g:\1.sql</span><br></pre></td></tr></table></figure></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks For Your Coming<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -238,366 +365,127 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/08/sql/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/注解/" class="archive-article-date">
-  	<time datetime="2019-04-07T12:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/04/12/连接数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          连接数据库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/07/注解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Annotation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/注解/">Annotation</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Annotation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">servlet3.0</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库分类"><span class="toc-number">1.1.</span> <span class="toc-text">数据库分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关系型数据库"><span class="toc-number">1.1.1.</span> <span class="toc-text">关系型数据库:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非关系型数据库"><span class="toc-number">1.1.2.</span> <span class="toc-text">非关系型数据库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql分类"><span class="toc-number">2.1.</span> <span class="toc-text">sql分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DDL-数据定义语言"><span class="toc-number">2.1.1.</span> <span class="toc-text">DDL:数据定义语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DML-数据操作语言"><span class="toc-number">2.1.2.</span> <span class="toc-text">DML:数据操作语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-数据查询语言-非官方"><span class="toc-number">2.1.3.</span> <span class="toc-text">DQL:数据查询语言(非官方)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DCL-数据控制语言"><span class="toc-number">2.1.4.</span> <span class="toc-text">DCL:数据控制语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#truncate-清空表-★"><span class="toc-number">2.2.</span> <span class="toc-text">truncate 清空表 ★</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一对多"><span class="toc-number">2.3.</span> <span class="toc-text">一对多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多对多"><span class="toc-number">2.4.</span> <span class="toc-text">多对多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多表查询"><span class="toc-number">2.5.</span> <span class="toc-text">多表查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#笛卡尔积"><span class="toc-number">2.5.1.</span> <span class="toc-text">笛卡尔积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内连接-★"><span class="toc-number">2.5.2.</span> <span class="toc-text">内连接:★</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外连接-★"><span class="toc-number">2.5.3.</span> <span class="toc-text">外连接:★</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库备份"><span class="toc-number">3.</span> <span class="toc-text">数据库备份</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/designpatterns/" class="archive-article-date">
-  	<time datetime="2019-04-07T11:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/designpatterns/">designpatterns</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/06/listener-filter/" class="archive-article-date">
-  	<time datetime="2019-04-06T08:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/06/listener-filter/">listener&amp;filter</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">filter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">listener</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/05/ajax/" class="archive-article-date">
-  	<time datetime="2019-04-05T03:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/05/ajax/">Ajax&amp;Json</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/mvc/" class="archive-article-date">
-  	<time datetime="2019-04-02T08:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/mvc/">MVC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/31/jsp-el-jstl/" class="archive-article-date">
-  	<time datetime="2019-03-31T08:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/31/jsp-el-jstl/">jsp&amp;el&amp;jstl</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">el</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jstl</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/30/cookie-session/" class="archive-article-date">
-  	<time datetime="2019-03-30T07:29:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/30/cookie-session/">Cookie&amp;Session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cookie</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/29/bookmanage/" class="archive-article-date">
-  	<time datetime="2019-03-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/29/bookmanage/">BookManage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -621,8 +509,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

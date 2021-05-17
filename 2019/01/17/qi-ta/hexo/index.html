@@ -498,13 +498,11 @@ hexo d -g <span class="token comment" spellcheck="true">#生成并上传</span>
 <p>2、hexo会帮我们在<code>_posts</code>下生成相关md文件</p>
 <p>3、我们只需要打开这个文件就可以开始写博客了</p>
 <p>4、一般md文件头部完整格式如下</p>
-<pre class=" language-markdown"><code class="language-markdown"><span class="token hr punctuation">---</span>
-title: postName #文章页面上的显示名称，一般是中文
+<pre class=" language-markdown"><code class="language-markdown">title: postName #文章页面上的显示名称，一般是中文
 date: 1111-11-11 11:11:11 #文章生成时间
 categories: 默认分类 #分类
 tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格
-<span class="token title important">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面
-<span class="token punctuation">---</span></span>
+description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面
 </code></pre>
 <p>5、如何让博文列表不显示全部内容</p>
 <p>​    在合适的位置加上<code>&lt;!--more--&gt;</code>即可</p>
@@ -768,8 +766,12 @@ tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:�
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            SycaRain
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category">
+                                    后端
+                                </a>
+                            
                             
                         </span>
                     </div>

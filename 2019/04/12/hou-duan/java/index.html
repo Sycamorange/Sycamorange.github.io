@@ -372,7 +372,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-18
+                    2021-05-19
                 </div>
                 
 
@@ -1099,6 +1099,91 @@ String<span class="token punctuation">[</span><span class="token punctuation">]<
 <p>另外，像 Java 中的一大利器 <strong>注解</strong> 的实现也用到了反射。</p>
 <p>为什么你使用 Spring 的时候 ，一个<code>@Component</code>注解就声明了一个类为 Spring Bean 呢？为什么你通过一个 <code>@Value</code>注解就读取到配置文件中的值呢？究竟是怎么起作用的呢？</p>
 <p>这些都是因为你可以基于反射分析类，然后获取到类/属性/方法/方法的参数上的注解。你获取到注解之后，就可以做进一步的处理。</p>
+<h3 id="反射实战"><a href="#反射实战" class="headerlink" title="反射实战"></a>反射实战</h3><h4 id="获取-Class-对象的四种方式"><a href="#获取-Class-对象的四种方式" class="headerlink" title="获取 Class 对象的四种方式"></a>获取 Class 对象的四种方式</h4><p>如果我们动态获取到这些信息，我们需要依靠 Class 对象。Class 类对象将一个类的方法、变量等信息告诉运行的程序。Java 提供了四种方式获取 Class 对象</p>
+<p><strong>1.知道具体类的情况下可以使用</strong></p>
+<pre class=" language-java"><code class="language-java">Class<span class="token operator">&lt;</span>TargetObject<span class="token operator">></span> targetObjectClass <span class="token operator">=</span> TargetObject<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>2.通过 <code>Class.forName()</code>传入类的路径获取</strong></p>
+<pre class=" language-java"><code class="language-java">Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> targetObjectClass <span class="token operator">=</span> Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"反射.TargetObject"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>3.通过对象实例<code>instance.getClass()</code>获取</strong></p>
+<pre class=" language-java"><code class="language-java">Class<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">TargetObject</span><span class="token operator">></span> targetObjectClass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TargetObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>4.通过类加载器<code>xxxClassLoader.loadClass()</code>传入类路径获取</strong></p>
+<pre class=" language-java"><code class="language-java">Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> targetObjectClass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TargetObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span><span class="token string">"反射.TargetObject"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>注意</strong><span class="github-emoji"><span>👀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>：通过类加载器获取 Class 对象不会进行初始化，意味着不进行包括初始化等一些列步骤，静态块和静态对象不会得到执行</p>
+<h3 id="反射的一些基本操作"><a href="#反射的一些基本操作" class="headerlink" title="反射的一些基本操作"></a>反射的一些基本操作</h3><p>1.创建一个我们要使用反射操作的类 <code>TargetObject</code>。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> 反射<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TargetObject</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String value<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">TargetObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        value <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">publicMethod</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"I Love "</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">privateMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"value is "</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.使用反射操作这个类的方法以及参数</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> 反射<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Field<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationTargetException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> ClassNotFoundException<span class="token punctuation">,</span> IllegalAccessException<span class="token punctuation">,</span>
+        InstantiationException<span class="token punctuation">,</span> NoSuchMethodException<span class="token punctuation">,</span> InvocationTargetException<span class="token punctuation">,</span> NoSuchFieldException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/**
+         * 1、4种方式获取TargetObject类的Class对象，并创建其实例
+         */</span>
+<span class="token comment" spellcheck="true">//        Class&lt;TargetObject> targetObjectClass = TargetObject.class;</span>
+<span class="token comment" spellcheck="true">//        Class&lt;?> targetObjectClass = Class.forName("反射.TargetObject");</span>
+<span class="token comment" spellcheck="true">//        Class&lt;? extends TargetObject> targetObjectClass = new TargetObject().getClass();</span>
+        Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> targetObjectClass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TargetObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span><span class="token string">"反射.TargetObject"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object targetObject <span class="token operator">=</span> targetObjectClass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/**
+         * 2、获取类中所有定义的方法
+         */</span>
+        Method<span class="token punctuation">[</span><span class="token punctuation">]</span> methods <span class="token operator">=</span> targetObjectClass<span class="token punctuation">.</span><span class="token function">getDeclaredMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>Method method <span class="token operator">:</span> methods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">/**
+         * 3、获取指定方法并调用
+         */</span>
+        Method publicMethod <span class="token operator">=</span> targetObjectClass<span class="token punctuation">.</span><span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span><span class="token string">"publicMethod"</span><span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        publicMethod<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>targetObject<span class="token punctuation">,</span> <span class="token string">"Java get method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/**
+         * 4、获取指定参数并对参数进行修改
+         */</span>
+        Field value <span class="token operator">=</span> targetObjectClass<span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 取消安全检查，若不取消，则会出现异常</span>
+        value<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        value<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>targetObject<span class="token punctuation">,</span><span class="token string">"Java change param"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/**
+         * 5、调用 private 方法
+         */</span>
+        Method privateMethod <span class="token operator">=</span> targetObjectClass<span class="token punctuation">.</span><span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span><span class="token string">"privateMethod"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 取消安全检查，若不取消，则会出现异常</span>
+        privateMethod<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        privateMethod<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>targetObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>输出内容：</p>
+<pre class=" language-markdown"><code class="language-markdown">publicMethod
+privateMethod
+I Love Java get method
+value is Java change param
+</code></pre>
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="Java-异常类层次结构图"><a href="#Java-异常类层次结构图" class="headerlink" title="Java 异常类层次结构图"></a>Java 异常类层次结构图</h3>
 
 <p>在 Java 中，所有的异常都有一个共同的祖先 <code>java.lang</code> 包中的 <code>Throwable</code> 类。<code>Throwable</code> 类有两个重要的子类 <code>Exception</code>（异常）和 <code>Error</code>（错误）。<code>Exception</code> 能被程序本身处理(<code>try-catch</code>)， <code>Error</code> 是无法处理的(只能尽量避免)。</p>
@@ -1212,9 +1297,9 @@ String s <span class="token operator">=</span> input<span class="token punctuati
 <li>OutputStream/Writer: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</li>
 </ul>
 <p>按操作方式分类结构图：</p>
-
+<img src="/2019/04/12/hou-duan/java/6.png">
 <p>按操作对象分类结构图：</p>
-
+<img src="/2019/04/12/hou-duan/java/7.png">
 <h3 id="既然有了字节流-为什么还要有字符流"><a href="#既然有了字节流-为什么还要有字符流" class="headerlink" title="既然有了字节流,为什么还要有字符流?"></a>既然有了字节流,为什么还要有字符流?</h3><p>问题本质想问：<strong>不管是文件读写还是网络发送接收，信息的最小存储单元都是字节，那为什么 I/O 流操作要分为字节流操作和字符流操作呢？</strong></p>
 <p>回答：字符流是由 Java 虚拟机将字节转换得到的，问题就出在这个过程还算是非常耗时，并且，如果我们不知道编码类型就很容易出现乱码问题。所以， I/O 流就干脆提供了一个直接操作字符的接口，方便我们平时对字符进行流操作。如果音频文件、图片等媒体文件用字节流比较好，如果涉及到字符的话使用字符流比较好。</p>
 
@@ -1223,56 +1308,6 @@ String s <span class="token operator">=</span> input<span class="token punctuati
             <hr>
 
             
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">SycaRain</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://sycamorange.github.io/2019/04/12/hou-duan/java/">https://sycamorange.github.io/2019/04/12/hou-duan/java/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">SycaRain</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
 
 
 
@@ -1304,9 +1339,6 @@ String s <span class="token operator">=</span> input<span class="token punctuati
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -1466,28 +1498,27 @@ String s <span class="token operator">=</span> input<span class="token punctuati
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/12/hou-duan/java/">
+                <a href="/2021/05/23/hou-duan/i-o-mo-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Java基础">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="I/O模型">
                         
-                        <span class="card-title">Java基础</span>
+                        <span class="card-title">I/O模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有关Java的一些重要知识
+                            有关I/O模型的一些知识
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-04-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1500,24 +1531,11 @@ String s <span class="token operator">=</span> input<span class="token punctuati
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java基础/">
-                        <span class="chip bg-color">Java基础</span>
-                    </a>
-                    
-                    <a href="/tags/面向对象/">
-                        <span class="chip bg-color">面向对象</span>
-                    </a>
-                    
-                    <a href="/tags/反射/">
-                        <span class="chip bg-color">反射</span>
-                    </a>
-                    
-                    <a href="/tags/I-O流/">
-                        <span class="chip bg-color">I/O流</span>
+                    <a href="/tags/I-O/">
+                        <span class="chip bg-color">I/O</span>
                     </a>
                     
                 </div>
